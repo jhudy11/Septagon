@@ -13,6 +13,10 @@ class GameScene: SKScene {
 
     var colorWheelBase = SKShapeNode()
     
+    // Input is in radians, thus the helper function to convert from degrees to radians
+    // The negative allows for a clockwise rotation
+    let spinColorWheel = SKAction.rotate(byAngle: -convertDegreesToRadians(degrees: 360 / 7), duration: 0.2)
+    
     override func didMove(to view: SKView) {
         
         let background = SKSpriteNode(imageNamed: "gameBackground")
@@ -33,9 +37,9 @@ class GameScene: SKScene {
     
     func prepColorWheel() {
         
-        for _ in 0...6 {
+        for i in 0...6 {
             
-            let side = SKSpriteNode(imageNamed: "side_Blue")
+            let side = Side(type: colorWheelOrder[i])
             let basePosition = CGPoint(x: self.size.width / 2, y: self.size.height / 4)
             side.position = convert(basePosition, to: colorWheelBase)
             side.zRotation = -colorWheelBase.zRotation
@@ -45,6 +49,12 @@ class GameScene: SKScene {
             colorWheelBase.zRotation += convertDegreesToRadians(degrees: 360/7)
             
         }
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        colorWheelBase.run(spinColorWheel)
         
     }
     
