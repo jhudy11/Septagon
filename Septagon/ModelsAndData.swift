@@ -32,8 +32,31 @@ let colorWheelOrder: [colorType] = [
     
 ]
 
+// All balls can be green
+let colorWheelOrderEasy: [colorType] = [
+    
+    .Red,
+    .Red,
+    .Green,
+    .Green,
+    .Blue,
+    .Blue,
+    .Blue
+    
+]
 
-
+// All balls can be green, super fast speed
+let colorWheelOrderHard: [colorType] = [
+    
+    .Green,
+    .Red,
+    .Red,
+    .Red,
+    .Red,
+    .Red,
+    .Red
+    
+]
 
 
 
