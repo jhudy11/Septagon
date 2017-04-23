@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49247E421EAC577C00FBA942 /* BallObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49247E411EAC577C00FBA942 /* BallObject.swift */; };
+		49247E471EAC646C00FBA942 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49247E431EAC646C00FBA942 /* CaviarDreams_Bold.ttf */; };
+		49247E481EAC646C00FBA942 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49247E441EAC646C00FBA942 /* CaviarDreams_BoldItalic.ttf */; };
+		49247E491EAC646C00FBA942 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49247E451EAC646C00FBA942 /* CaviarDreams_Italic.ttf */; };
+		49247E4A1EAC646C00FBA942 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49247E461EAC646C00FBA942 /* CaviarDreams.ttf */; };
 		493D55901EA7140D0021F7D5 /* SideObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D558F1EA7140D0021F7D5 /* SideObject.swift */; };
 		493D55921EA715180021F7D5 /* ModelsAndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D55911EA715180021F7D5 /* ModelsAndData.swift */; };
 		49B767201EA5B4AC0021D89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7671F1EA5B4AC0021D89A /* AppDelegate.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49247E411EAC577C00FBA942 /* BallObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallObject.swift; sourceTree = "<group>"; };
+		49247E431EAC646C00FBA942 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
+		49247E441EAC646C00FBA942 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
+		49247E451EAC646C00FBA942 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
+		49247E461EAC646C00FBA942 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		493D558F1EA7140D0021F7D5 /* SideObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideObject.swift; sourceTree = "<group>"; };
 		493D55911EA715180021F7D5 /* ModelsAndData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAndData.swift; sourceTree = "<group>"; };
 		49B7671C1EA5B4AB0021D89A /* Septagon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Septagon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +59,7 @@
 				49B767371EA5C3B00021D89A /* UtilFuncs.swift */,
 				493D55911EA715180021F7D5 /* ModelsAndData.swift */,
 				493D558F1EA7140D0021F7D5 /* SideObject.swift */,
+				49247E411EAC577C00FBA942 /* BallObject.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -94,6 +105,10 @@
 				49B7671F1EA5B4AC0021D89A /* AppDelegate.swift */,
 				49B767291EA5B4AE0021D89A /* Main.storyboard */,
 				49B7672C1EA5B4AE0021D89A /* Assets.xcassets */,
+				49247E431EAC646C00FBA942 /* CaviarDreams_Bold.ttf */,
+				49247E441EAC646C00FBA942 /* CaviarDreams_BoldItalic.ttf */,
+				49247E451EAC646C00FBA942 /* CaviarDreams_Italic.ttf */,
+				49247E461EAC646C00FBA942 /* CaviarDreams.ttf */,
 				49B7672E1EA5B4AE0021D89A /* LaunchScreen.storyboard */,
 				49B767311EA5B4AE0021D89A /* Info.plist */,
 			);
@@ -163,6 +178,10 @@
 				49B7672B1EA5B4AE0021D89A /* Main.storyboard in Resources */,
 				49B7672D1EA5B4AE0021D89A /* Assets.xcassets in Resources */,
 				49B767301EA5B4AE0021D89A /* LaunchScreen.storyboard in Resources */,
+				49247E4A1EAC646C00FBA942 /* CaviarDreams.ttf in Resources */,
+				49247E481EAC646C00FBA942 /* CaviarDreams_BoldItalic.ttf in Resources */,
+				49247E491EAC646C00FBA942 /* CaviarDreams_Italic.ttf in Resources */,
+				49247E471EAC646C00FBA942 /* CaviarDreams_Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49B767261EA5B4AD0021D89A /* GameScene.swift in Sources */,
+				49247E421EAC577C00FBA942 /* BallObject.swift in Sources */,
 				49B767281EA5B4AD0021D89A /* GameViewController.swift in Sources */,
 				493D55901EA7140D0021F7D5 /* SideObject.swift in Sources */,
 				49B767201EA5B4AC0021D89A /* AppDelegate.swift in Sources */,

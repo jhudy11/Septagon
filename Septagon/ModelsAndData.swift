@@ -7,6 +7,11 @@
 //
 
 import Foundation
+import SpriteKit
+
+/////////////////////
+/////   SIDES   /////
+/////////////////////
 
 enum colorType {
     
@@ -57,6 +62,29 @@ let colorWheelOrderHard: [colorType] = [
     .Red
     
 ]
+
+var sidePositions: [CGPoint] = []
+
+
+//////////////////////////
+/////   GAME STATE   /////
+//////////////////////////
+
+enum gameState {
+    
+    case beforeGame
+    case inGame
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 

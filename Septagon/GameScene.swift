@@ -17,6 +17,10 @@ class GameScene: SKScene {
     // The negative allows for a clockwise rotation
     let spinColorWheel = SKAction.rotate(byAngle: -convertDegreesToRadians(degrees: 360 / 7), duration: 0.2)
     
+    var currentGameState: gameState = gameState.beforeGame
+    
+    let tapToStartLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    
     override func didMove(to view: SKView) {
         
         let background = SKSpriteNode(imageNamed: "gameBackground")
@@ -32,6 +36,12 @@ class GameScene: SKScene {
         self.addChild(colorWheelBase)
         
         prepColorWheel()
+        
+        tapToStartLabel.text = "Tap To Start"
+        tapToStartLabel.fontSize = 100
+        tapToStartLabel.fontColor = SKColor.darkGray
+        tapToStartLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 10)
+        self.addChild(tapToStartLabel)
         
     }
     
@@ -50,11 +60,61 @@ class GameScene: SKScene {
             
         }
         
+        // Get the starting positions of the sides
+        for side in colorWheelBase.children {
+            
+            let sidePosition = side.position
+            let positionInScene = convert(sidePosition, from: colorWheelBase)
+            sidePositions.append(positionInScene)
+            
+        }
+        
+    }
+    
+    // Add a ball in the center of the screen
+    func spawnBall() {
+        
+        let ball = Ball()
+        ball.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        self.addChild(ball)
+        
+    }
+    
+    func startTheGame() {
+        
+        spawnBall()
+        
+        currentGameState = .inGame
+        
+        scaleDownAndRemoveStartLabel()
+        
+    }
+    
+    func scaleDownAndRemoveStartLabel() {
+        
+        // Scale the label before removing it from scene
+        let scaleDown = SKAction.scale(to: 0, duration: 0.2)
+        let deleteLabel = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([scaleDown, deleteLabel])
+        tapToStartLabel.run(deleteSequence)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        colorWheelBase.run(spinColorWheel)
+        if currentGameState == .beforeGame {
+            
+            // Start the Game
+            startTheGame()
+            
+        }
+        
+        else if currentGameState == .inGame {
+            
+            // Spin the colorwheel
+            colorWheelBase.run(spinColorWheel)
+            
+        }
         
     }
     

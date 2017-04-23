@@ -40,5 +40,12 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CaviarDreams.ttf</string>
+		<string>CaviarDreams_Bold.ttf</string>
+		<string>CaviarDreams_BoldItalic.ttf</string>
+		<string>CaviarDreams_Italic.ttf</string>
+	</array>
 </dict>
 </plist>
