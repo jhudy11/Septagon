@@ -12,6 +12,7 @@ import SpriteKit
 class Ball: SKSpriteNode {
     
     let type: colorType
+    var isActive: Bool = true
     
     init() {
         
@@ -21,6 +22,15 @@ class Ball: SKSpriteNode {
         let ballTexture = SKTexture(imageNamed: "ball_\(self.type)")
         
         super.init(texture: ballTexture, color: SKColor.clear, size: ballTexture.size())
+        
+        // Collision: two physics bodies will bump each other out of the way
+        // Contact: we can run some code when two physics bodies hit
+        
+        self.physicsBody = SKPhysicsBody(circleOfRadius: 55)
+        self.physicsBody!.affectedByGravity = false
+        self.physicsBody!.categoryBitMask = PhysicsCatagories.Ball
+        self.physicsBody!.collisionBitMask = PhysicsCatagories.None
+        self.physicsBody!.contactTestBitMask = PhysicsCatagories.Side
         
         // Have ball "pop" into the scene
         self.setScale(0)
@@ -42,6 +52,21 @@ class Ball: SKSpriteNode {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func delete() {
+        
+        self.isActive = false
+        
+        // Stops the ball from moving on collision and not having a drift
+        // self.removeAllActions()
+        
+        let scaleDown = SKAction.scale(by: 0, duration: 0.2)
+        let deleteBall = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([scaleDown, deleteBall])
+        
+        self.run(deleteSequence)
+        
     }
     
 }

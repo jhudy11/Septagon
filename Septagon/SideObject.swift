@@ -21,6 +21,12 @@ class Side: SKSpriteNode {
         
         super.init(texture: sideTexture, color: SKColor.clear, size: sideTexture.size())
         
+        self.physicsBody = SKPhysicsBody(rectangleOf: self.size)
+        self.physicsBody!.affectedByGravity = false
+        self.physicsBody!.categoryBitMask = PhysicsCatagories.Side
+        self.physicsBody!.collisionBitMask = PhysicsCatagories.None
+        self.physicsBody!.contactTestBitMask = PhysicsCatagories.Ball
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
