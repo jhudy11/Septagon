@@ -16,10 +16,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Input is in radians, thus the helper function to convert from degrees to radians
     // The negative allows for a clockwise rotation
     let spinColorWheel = SKAction.rotate(byAngle: -convertDegreesToRadians(degrees: 360 / 7), duration: 0.2)
+    let playCorrectSound = SKAction.playSoundFileNamed("correctSound.wav", waitForCompletion: false)
     
     var currentGameState: gameState = gameState.beforeGame
     
     let tapToStartLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    let scoreLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    let highScoreLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    
+    var highScore = UserDefaults.standard.integer(forKey: "highScoreSaved")
     
     override func didMove(to view: SKView) {
         
@@ -44,6 +49,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.fontColor = SKColor.darkGray
         tapToStartLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 10)
         self.addChild(tapToStartLabel)
+        
+        scoreLabel.text = "0"
+        scoreLabel.fontSize = 225
+        scoreLabel.fontColor = SKColor.darkGray
+        scoreLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.85)
+        self.addChild(scoreLabel)
+        
+        highScoreLabel.text = "Best: \(highScore)"
+        highScoreLabel.fontSize = 100
+        highScoreLabel.fontColor = SKColor.darkGray
+        highScoreLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.8)
+        self.addChild(highScoreLabel)
         
     }
     
@@ -135,8 +152,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ball.isActive == true {
             checkMatch(ball: ball, side: side)
-            ball.delete()
-            spawnBall()
         }
         
     }
@@ -146,11 +161,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if ball.type == side.type {
             // Correct Match
             print("Correct!")
+            correctMatch(ball: ball)
+            
         } else {
             // Incorrect Match
             print("Incorrect")
+            wrongMatch()
         }
         
+    }
+    
+    func correctMatch(ball: Ball) {
+        ball.delete()
+        
+        score += 1
+        scoreLabel.text = "\(score)"
+        
+        // Difficulty System
+        switch score {
+        case 5:
+            ballMovementSpeed = 1.8
+        case 15:
+            ballMovementSpeed = 1.6
+        case 25:
+            ballMovementSpeed = 1.5
+        case 40:
+            ballMovementSpeed = 1.4
+        case 60:
+            ballMovementSpeed = 1.3
+        default:
+            print("No level change")
+        }
+        
+        spawnBall()
+        
+        if score > highScore {
+            highScoreLabel.text = "Best: \(score)"
+        }
+        
+        self.run(playCorrectSound)
+        
+    }
+    
+    func wrongMatch() {
+        // End the game
+        
+        if score > highScore {
+            highScore = score
+            UserDefaults.standard.set(highScore, forKey: "highScoreSaved")
+        }
     }
     
 }

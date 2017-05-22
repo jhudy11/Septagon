@@ -87,9 +87,17 @@ struct PhysicsCatagories {
     static let Side: UInt32 = 0b10 //2
 }
 
+////////////////////////////
+/////   SCORE SYSTEM   /////
+////////////////////////////
 
+var score: Int = 0
 
+////////////////////////////
+/////   LEVEL SYSTEM   /////
+////////////////////////////
 
+var ballMovementSpeed: TimeInterval = 2
 
 
 
