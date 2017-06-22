@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // The negative allows for a clockwise rotation
     let spinColorWheel = SKAction.rotate(byAngle: -convertDegreesToRadians(degrees: 360 / 7), duration: 0.2)
     let playCorrectSound = SKAction.playSoundFileNamed("correctSound.wav", waitForCompletion: false)
+    let playIncorrectSound = SKAction.playSoundFileNamed("incorrectSound.wav", waitForCompletion: false)
     
     var currentGameState: gameState = gameState.beforeGame
     
@@ -27,6 +28,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var highScore = UserDefaults.standard.integer(forKey: "highScoreSaved")
     
     override func didMove(to view: SKView) {
+        
+        score = 0
+        ballMovementSpeed = 2
         
         self.physicsWorld.contactDelegate = self
         
@@ -166,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else {
             // Incorrect Match
             print("Incorrect")
-            wrongMatch()
+            wrongMatch(ball: ball)
         }
         
     }
@@ -203,13 +207,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func wrongMatch() {
+    func wrongMatch(ball: Ball) {
         // End the game
         
         if score > highScore {
             highScore = score
             UserDefaults.standard.set(highScore, forKey: "highScoreSaved")
         }
+        
+        ball.flash()
+        self.run(playIncorrectSound)
+        currentGameState = .afterGame
+        
+        colorWheelBase.removeAllActions()
+        
+        let waitToChangeScene = SKAction.wait(forDuration: 3)
+        let changeScene = SKAction.run {
+            let sceneToMoveTo = GameOverScene(fileNamed: "GameOverScene")!
+            //let sceneToMoveTo = SKScene(fileNamed: "GameOverScene")!
+            
+            sceneToMoveTo.scaleMode = self.scaleMode
+            let sceneTransition = SKTransition.fade(withDuration: 0.5)
+            self.view!.presentScene(sceneToMoveTo, transition: sceneTransition)
+        }
+        
+        let sceneChangeSequence = SKAction.sequence([waitToChangeScene, changeScene])
+        self.run(sceneChangeSequence)
+        
     }
     
 }

@@ -69,6 +69,20 @@ class Ball: SKSpriteNode {
         
     }
     
+    func flash() {
+        
+        self.removeAllActions()
+        self.isActive = false
+        
+        let fadeOut = SKAction.fadeOut(withDuration: 0.4)
+        let fadeIn = SKAction.fadeIn(withDuration: 0.4)
+        
+        let flashSequence = SKAction.sequence([fadeOut, fadeIn])
+        let repeatFlash = SKAction.repeat(flashSequence, count: 3)
+        
+        self.run(repeatFlash)
+    }
+    
 }
 
 
