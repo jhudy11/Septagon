@@ -15,6 +15,8 @@
 		493D55901EA7140D0021F7D5 /* SideObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D558F1EA7140D0021F7D5 /* SideObject.swift */; };
 		493D55921EA715180021F7D5 /* ModelsAndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D55911EA715180021F7D5 /* ModelsAndData.swift */; };
 		495C5D461ED27760008F0326 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 495C5D451ED27760008F0326 /* correctSound.wav */; };
+		49B433141F13443E00B6A2A2 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 49B433131F13443E00B6A2A2 /* MainMenuScene.sks */; };
+		49B433161F13446000B6A2A2 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B433151F13446000B6A2A2 /* MainMenuScene.swift */; };
 		49B767201EA5B4AC0021D89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7671F1EA5B4AC0021D89A /* AppDelegate.swift */; };
 		49B767261EA5B4AD0021D89A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B767251EA5B4AD0021D89A /* GameScene.swift */; };
 		49B767281EA5B4AD0021D89A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B767271EA5B4AD0021D89A /* GameViewController.swift */; };
@@ -36,6 +38,8 @@
 		493D558F1EA7140D0021F7D5 /* SideObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideObject.swift; sourceTree = "<group>"; };
 		493D55911EA715180021F7D5 /* ModelsAndData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAndData.swift; sourceTree = "<group>"; };
 		495C5D451ED27760008F0326 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
+		49B433131F13443E00B6A2A2 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
+		49B433151F13446000B6A2A2 /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		49B7671C1EA5B4AB0021D89A /* Septagon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Septagon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B7671F1EA5B4AC0021D89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49B767251EA5B4AD0021D89A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				49B767251EA5B4AD0021D89A /* GameScene.swift */,
+				49B433131F13443E00B6A2A2 /* MainMenuScene.sks */,
+				49B433151F13446000B6A2A2 /* MainMenuScene.swift */,
 				49D443251EFB8765008FCA8C /* GameOverScene.sks */,
 				49D443271EFB87B9008FCA8C /* GameOverScene.swift */,
 			);
@@ -195,6 +201,7 @@
 				49247E481EAC646C00FBA942 /* CaviarDreams_BoldItalic.ttf in Resources */,
 				49247E491EAC646C00FBA942 /* CaviarDreams_Italic.ttf in Resources */,
 				49247E471EAC646C00FBA942 /* CaviarDreams_Bold.ttf in Resources */,
+				49B433141F13443E00B6A2A2 /* MainMenuScene.sks in Resources */,
 				49D443261EFB8765008FCA8C /* GameOverScene.sks in Resources */,
 				495C5D461ED27760008F0326 /* correctSound.wav in Resources */,
 			);
@@ -210,6 +217,7 @@
 				49B767261EA5B4AD0021D89A /* GameScene.swift in Sources */,
 				49247E421EAC577C00FBA942 /* BallObject.swift in Sources */,
 				49D443281EFB87B9008FCA8C /* GameOverScene.swift in Sources */,
+				49B433161F13446000B6A2A2 /* MainMenuScene.swift in Sources */,
 				49B767281EA5B4AD0021D89A /* GameViewController.swift in Sources */,
 				493D55901EA7140D0021F7D5 /* SideObject.swift in Sources */,
 				49B767201EA5B4AC0021D89A /* AppDelegate.swift in Sources */,
